@@ -1,0 +1,22 @@
+#!/bin/bash 
+
+#Pre install dependencies and creates server config 
+
+#Install Havoc https://havocframework.com/docs/installation
+echo 'deb http://ftp.de.debian.org/debian bookworm main' >> /etc/apt/sources.list
+sudo apt update
+sudo apt install python3-dev python3.10-dev libpython3.10 libpython3.10-dev python3.10 cmake 
+
+git clone https://github.com/HavocFramework/Havoc.git
+cd Havoc
+make ts-build
+./havoc server --profile ./profiles/havoc.yaotl -v --debug
+
+#Install ProxyChains and Tor - Only Bridges and Relays, k ?  
+## -> https://superuser.com/questions/1071163/feasiblity-to-host-tor-hidden-service-in-amazon-ec2
+
+#TODO: 
+# Harden the opsec: 
+# https://cyberw1ng.medium.com/introduction-to-command-and-control-c2-in-red-teaming-enhancing-offensive-security-strategies-cc2c58068520
+# https://notes.offsec-journey.com/resource-development/infrastructure
+# https://docs.mythic-c2.net/customizing/c2-related-development/server-side-coding/opsec-checks-for-c2-profiles

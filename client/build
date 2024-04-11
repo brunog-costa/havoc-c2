@@ -1,0 +1,7 @@
+#!/bin/bash 
+
+#from here https://havocframework.com/docs/installation
+git clone https://github.com/HavocFramework/Havoc.git
+cd Havoc
+make client-build
+./havoc client
