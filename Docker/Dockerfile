@@ -4,7 +4,8 @@
 # root@4e18e3ae7da0:/Havoc# 
 
 # Pull Debian Bookworm Image from DockerHubcode 
-FROM debian:12.5
+# Try change it to Alpine and use APK to install all the stuff
+FROM debian:12.5 
 
 # Install basic packages on the machine 
 RUN echo 'deb http://ftp.de.debian.org/debian bookworm main' >> /etc/apt/sources.list
